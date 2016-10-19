@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{ margin:0; padding:0;}
+.Header{
+    height:50px;
+    background:#09C;
+    text-align: center;
+     position: fixed;
+    min-width:1000px;
+    width: 100%;
+}
+.Left{
+    top: 50px;
+    float:left;
+    width:150px; height:100%;
+    background: #22282e;
+    position: fixed;
+}
+.Right{
+    float:right; width:1000px; height:800px; background:#E8E8E8;
+    overflow:scroll;
+
+}
+.Center{
+    top: 50px;
+    margin:0 150px; height:100%; background:#ffffff;
+    overflow:scroll;
+     position: fixed;
+}
+.Content{
+
+    min-width:700px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)>700?"700px":"");
+}
+     a {
+            text-decoration: none;
+        }
+
+        #conter {
+            width: 800px;
+            margin: auto;
+        }
+
+        #help-left {
+            width: 150px;
+            font-family: 'microsoft YaHei';
+            float: left;
+        }
+
+        .menu {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .menu:last-child {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu summary {
+            height: 40px;
+            line-height: 40px;
+            text-indent: 10px;
+            outline: none;
+            font-size: 14px;
+            color:#fff;
+            font-weight: 700;
+            border-top: 1px solid #525d6d;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #000000), color-stop(1, #000000));
+            cursor: pointer;
+        }
+
+        .menu summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /*可用图片或字符,如果使用图片，请把content的值设置成空字符*/
+        .menu summary:before {
+            content: "+";
+            /*background: url(../Images/right.png) no-repeat center center;*/ /*收起时的图片*/
+            /*vertical-align: middle;*/
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            font-size:18px;
+            font-weight:700;
+        }
+
+        .menu[open] summary:before {
+            content: "-";
+            /*background: url(../Images/down.png) no-repeat center center;*/ /*展开时的图片*/
+        }
+
+        .menu ul {
+            padding: 10px 0;
+        }
+
+        .menu ul li {
+            list-style: none;
+            text-indent: 25px;
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .menu ul li a {
+            display: block;
+            color: #fff;
+        }
+
+        .menu ul li a:hover {
+            text-decoration: underline;
+        }
+</style>
+</head>
+<body>
+<div class="Header">
+    <span style="font-size:2em;font-family : 微软雅黑,宋体;">文&nbsp;章&nbsp;管&nbsp;理&nbsp;系&nbsp;统</span>
+    <a href="/loginout">注销</a>
+</div>
+<div class="Content">
+
+<div class="Left">
+
+    <section id="conter">
+            <section id="help-left">
+                <details class="menu" open>
+                    <summary>文章管理</summary>
+                    <ul>
+                        <li><a href="/article/list">全部文章</a></li>
+                        <li><a href="/article/list">未处理文章</a></li>
+                        <li><a href="/article/list">已处理文章</a></li>
+                        <li><a href="/article/list">回收站</a></li>
+                    </ul>
+                </details>
+                <details class="menu" open>
+                    <summary>用户管理</summary>
+                    <ul>
+                        <li><a href="/article/keyword">关键字管理</a></li>
+                        <li><a href="#">账号管理</a></li>
+                    </ul>
+                </details>
+            </section>
+                    <section id="help-right"></section>
+        </section>
+</div>
+    {% block content %}
+        {% block article_detail %}
+        <div class="Right">
+            <img src="/static/images/test.jpg" alt=""/>
+        </div>
+        {% endblock %}
+        {% block article_list %}
+            <div class="Center">
+            </div>
+        {% endblock %}
+    {% endblock %}
+</div>
+</body>
+</html>

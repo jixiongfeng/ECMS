@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script>
+        $(document).ready(function(){
+            $('#article_title').click(function(){
+                $(this).hide();
+            });
+        });
+
+</script>
+{% block article_list %}
+<div class="Center">
+
+            {% for item in data %}
+                <div id="article_title" style="border:1px solid #8C8C8C;margin:3px;background: #E5E5E5;height: 30px">
+                    <span>{{ item.author }}</span>
+                </div>
+              {% endfor %}
+
+</div>
+{% endblock %}
+{% block article_detail %}
+<div class="Right">
+    <img src="/static/images/test.jpg" alt=""/>
+</div>
+{% endblock %}
+</body>
+</html>
